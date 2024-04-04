@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Form</title>
+</head>
+<body>
+    <h1>Employee Form</h1>
+    <form method="post" action="{% url 'emp' %}">
+        {% csrf_token %}
+        <label for="ename">Name:</label><br>
+        <input type="text" id="ename" name="ename" required><br>
+        <label for="eemail">Email:</label><br>
+        <input type="email" id="eemail" name="eemail" required><br>
+        <label for="econtact">Contact:</label><br>
+        <input type="text" id="econtact" name="econtact" required><br><br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
