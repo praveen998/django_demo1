@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee List</title>
+</head>
+<body>
+    <h1>Employee List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>contact</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for employee in employees %}
+            <tr>
+                <td>{{ employee.eid }}</td>
+                <td>{{ employee.ename }}</td>
+                <td>{{ employee.eemail }}</td>
+                <td>{{ employee.econtact }}</td>
+               
+                <td>
+                    <a href="{% url 'employee_detail' employee.id %}">View</a>
+                    <a href="{% url 'employee_update' employee.id %}">Edit</a>
+                    <a href="{% url 'employee_delete' employee.id %}">Delete</a>
+                </td>
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'employee_create' %}">Add New Employee</a>
+</body>
+</html>
+

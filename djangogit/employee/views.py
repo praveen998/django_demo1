@@ -22,4 +22,9 @@ def emp(request):
 
 def show(request):
     employees = Employee.objects.all()
-    return render(request,"employee_list.html")
+    return render(request,"show.html",{'name':'praveen'})
+
+def myview(request):
+    items=['item1','item2','item3','item4','item5']
+    it=['it1','it2','it3']
+    return render(request,'myview.html',{'items':items,'it':it})
