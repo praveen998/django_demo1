@@ -51,6 +51,8 @@ def update(request,id):
     return render(request,'edit.html',{'employee':employee})
 
 def delete(request,id):
-    return HttpResponse('destroy')
+    employee=Employee.objects.get(eid=id)
+    employee.delete()
+    return redirect("/emp/show")
 
 
