@@ -6,7 +6,8 @@ from .forms import EmployeeForm
 # Create your views here.
 
 def index(request):
-    return HttpResponse('welcome employee')
+    name="praveen"
+    return render(request,'index.html',{'name':name})
 
 
 def emp(request):
@@ -22,7 +23,8 @@ def emp(request):
 
 def show(request):
     employees = Employee.objects.all()
-    return render(request,"show.html",{'name':'praveen'})
+    return render(request,"show.html",{'employees':employees})
+
 
 def myview(request):
     items=['item1','item2','item3','item4','item5']

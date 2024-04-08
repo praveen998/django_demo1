@@ -1,7 +1,57 @@
 <!DOCTYPE html>
 <html>
-    <head></head>
+    <head>
+        <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 8px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #ddd;
+        }
+    </style>
+    </head>
     <body>
-        <h2> welcome show.html {{ name }} </show></h2>
+        <h2> list of employees</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Employee ID</th>
+                    <th>Employee Name</th>
+                    <th>Employee Email</th>
+                    <th>Employee Contact</th>
+                    <th>Actions</th> 
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Iterate over employees and display their attributes -->
+                {% for employee in employees %}
+                    <tr>
+                        <td>{{ employee.eid }}</td>
+                        <td>{{ employee.ename }}</td>
+                        <td>{{ employee.eemail }}</td>
+                        <td>{{ employee.econtact }}</td>
+                        <td>
+                            <a href="/emp/edit/{{employee.id}}"><span>Edit</span></a>
+                            <a href="/emp/delete/{{employee.id}}">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>     
+    
     </body>
 </html>
